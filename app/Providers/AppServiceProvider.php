@@ -28,5 +28,9 @@ class AppServiceProvider extends ServiceProvider
                 return false; // let everything else through
             }, E_USER_WARNING);
         }
+
+        if(config('app.env') === 'production'){
+            URL::forceSchema('https');
+        };
     }
 }
